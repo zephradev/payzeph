@@ -6,8 +6,8 @@ import * as schema from './schema';
 
 @Injectable()
 export class DatabaseService implements OnModuleInit, OnModuleDestroy {
-    private pool: Pool;
-    public db: ReturnType<typeof drizzle>;
+    private pool!: Pool;
+    public db!: ReturnType<typeof drizzle>;
 
     constructor(private configService: ConfigService) {}
 
