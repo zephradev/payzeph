@@ -11,24 +11,24 @@ export const envSchema = z.object({
     REDIS_URL: z.string().min(1),
 
     JWT_SECRET: z.string().min(1),
-    JWT_EXPIRES_IN: z.string().default('15m'),
+    JWT_EXPIRES_IN: z.string().default('2h'),
     JWT_REFRESH_SECRET: z.string().min(1),
     JWT_REFRESH_EXPIRES_IN: z.string().default('7d'),
 
-    PAYSTACK_SECRET_KEY: z.string().min(1),
-    PAYSTACK_PUBLIC_KEY: z.string().min(1),
+    FLW_SECRET_KEY: z.string().default(''),
+    FLW_PUBLIC_KEY: z.string().default(''),
+    FLW_WEBHOOK_HASH: z.string().default(''),
 
-    VTPASS_API_KEY: z.string().min(1),
-    VTPASS_PUBLIC_KEY: z.string().min(1),
-    VTPASS_SECRET_KEY: z.string().min(1),
-    VTPASS_BASE_URL: z.string().url(),
+    VTPASS_API_KEY: z.string().default(''),
+    VTPASS_SECRET_KEY: z.string().default(''),
+    VTPASS_BASE_URL: z.string().default('https://sandbox.vtpass.com/api'),
 
-    RESEND_API_KEY: z.string().min(1),
-    RESEND_FROM_EMAIL: z.string().email(),
+    // RESEND_API_KEY: z.string().min(1),
+    // RESEND_FROM_EMAIL: z.string().email(),
 
-    CLOUDINARY_CLOUD_NAME: z.string().min(1),
-    CLOUDINARY_API_KEY: z.string().min(1),
-    CLOUDINARY_API_SECRET: z.string().min(1),
+    // CLOUDINARY_CLOUD_NAME: z.string().min(1),
+    // CLOUDINARY_API_KEY: z.string().min(1),
+    // CLOUDINARY_API_SECRET: z.string().min(1),
 });
 
 export type EnvConfig = z.infer<typeof envSchema>;
