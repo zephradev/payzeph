@@ -1,10 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { ArrowLeft, Lock, Loader2, CheckCircle2, XCircle } from "lucide-react";
 
 export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-neutral-400" />
+      </div>
+    }>
+      <CheckoutContent />
+    </Suspense>
+  );
+}
+
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 

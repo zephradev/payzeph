@@ -346,7 +346,7 @@ export function Header({ onMenuClick, user }: HeaderProps) {
                     setSearchQuery("");
                   }
                   if (e.key === "Enter" && filteredPages.length > 0) {
-                    handleSearchNav(filteredPages[0].href);
+                    handleSearchNav(filteredPages[0]!.href);
                   }
                 }}
               />
