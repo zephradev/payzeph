@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "@/lib/api";
+import type { Transaction } from "@/lib/mock-data";
 
 interface UseTransactionsOptions {
   page?: number;
@@ -14,7 +15,7 @@ export function useTransactions({ page = 1, perPage = 10 }: UseTransactionsOptio
         params: { page, perPage },
       });
       return data as {
-        data: any[];
+        data: Transaction[];
         total: number;
         page: number;
         perPage: number;
